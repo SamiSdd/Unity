@@ -154,7 +154,7 @@ public class AppsFlyer : MonoBehaviour {
 		using(AndroidJavaClass cls_UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer")) 
 		{
 			using(AndroidJavaObject cls_Activity = cls_UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity")) {
-				cls_AppsFlyerHelper.Call("createConversionDataListener", cls_Activity, callbackObject, callbackMethod, callbackFailedMethod);	
+				cls_AppsFlyerHelper.CallStatic("createConversionDataListener", cls_Activity, callbackObject, callbackMethod, callbackFailedMethod);	
 			}
 		}
 	}
@@ -193,7 +193,7 @@ public class AppsFlyer : MonoBehaviour {
 		
 		using(AndroidJavaClass cls_UnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer")) {
 			using(AndroidJavaObject cls_Activity = cls_UnityPlayer.GetStatic<AndroidJavaObject>("currentActivity")) {
-				cls_AppsFlyerHelper.Call("createValidateInAppListener", cls_Activity, aObject, callbackMethod, callbackFailedMethod);
+				cls_AppsFlyerHelper.CallStatic("createValidateInAppListener", cls_Activity, aObject, callbackMethod, callbackFailedMethod);
 			}
 		}		
 	}
